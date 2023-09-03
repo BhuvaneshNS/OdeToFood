@@ -1,0 +1,14 @@
+﻿@page "{restaurantId:int}"
+@model OdeToFood.Pages.Restaurants.DeleteModel
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<form method="post">
+
+    <div class=" alert alert-danger">
+        <h3> Are you sure you want to delete @Model.Restaurant.Name?</h3>
+    </div>
+    <button type="submit" class="btn btn-danger">Yes</button>
+    <a class="btn btn-success" asp-page="./List">No</a>
+</form>

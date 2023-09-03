@@ -1,0 +1,36 @@
+﻿@page
+@using OdeToFood.Core;
+@model OdeToFood.Pages.Restaurants.ListModel
+@{
+    ViewData["Title"] = "Restaurants";
+
+}
+
+<h1> Restaurants page</h1>
+<form method="get">
+    <div class="input-group mb-3">
+        <input type="search" class="form-control" placeholder="Search" asp-for="SearchTerm">
+        <button type="submit" class="btn btn-outline-success ">
+            Search
+        </button>
+    </div>
+</form>
+@foreach(Restaurant restaurant in Model.Restaurants)
+{
+    <partial name="_Summary" model="restaurant"/>
+}
+@*<table class="table">
+    @foreach (Restaurant restaurant in Model.Restaurants)
+    {
+        <tr>
+            <td>@restaurant.Name</td>
+            <td>@restaurant.Location</td>
+            <td>@restaurant.Cuisine</td>
+            <td><a class="btn btn-primary" asp-page="./Details" asp-route-restaurantId="@restaurant.Id"> Details</a></td>
+            <td><a class="btn btn-primary" asp-page="./Edit" asp-route-restaurantId="@restaurant.Id"> Edit</a></td>
+            <td><a class="btn btn-primary" asp-page="./Delete" asp-route-restaurantId="@restaurant.Id"> Delete</a></td>
+        </tr>
+    }
+</table>*@
+
+<a asp-page="./Edit" class="btn btn-primary">Add New Restaurant</a>
